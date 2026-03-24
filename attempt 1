@@ -23,31 +23,31 @@ void loop() {
 
   ps4.getPS4();                                 
 
-  if(ps4.Connected){  
+  if(ps4.Connected){    //move claw up
      if(ps4.Button(L1)){
       prizm.setCRServoState(1,-100);
       delay(100);
        prizm.setCRServoState(1,0);
     } 
               
-    if(ps4.Button(R1)){
+    if(ps4.Button(R1)){  move claw down
       prizm.setCRServoState(1,100);
       delay(100);
        prizm.setCRServoState(1,0);
     }
 
-    if(ps4.Button(L2)){
+    if(ps4.Button(L2)){  //close claw
       claw -= 10;
       prizm.setServoPosition(2, claw);
       delay(5);
     }
 
-    if(ps4.Button(R2)){
+    if(ps4.Button(R2)){  //open claw
       claw += 10;
       prizm.setServoPosition(2, claw);
       delay(5);
     }                          
-      PowerM1 = ps4.Motor(LY);                  
+      PowerM1 = ps4.Motor(LY);    //drive controls              
       PowerM2 = ps4.Motor(RY);                  
       prizm.setMotorPowers(PowerM1, PowerM2);   
       Serial.println(PowerM1);
